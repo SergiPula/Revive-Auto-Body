@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVIVE Auto Body Works - Φανοποιείο & Βαφές Φούρνου</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#e50914',
+                            darkred: '#b80710',
+                            dark: '#121212',
+                            card: '#1e1e1e',
+                            lightgray: '#f4f4f5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        section[id], div[id] {
+            scroll-margin-top: 100px;
+        }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(18,18,18,0.85) 0%, rgba(18,18,18,0.95) 100%);
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        body.modal-active {
+            overflow: hidden;
+        }
+        #backToTop {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        }
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-body antialiased pb-20 md:pb-0">
+
+    <!-- TOP HEADER / NAV -->
+    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa-solid fa-car-burst text-brand-red text-3xl"></i>
+                <div>
+                    <span class="text-2xl font-black tracking-wider text-white block leading-none">REVIVE</span>
+                    <span class="text-xs text-brand-red font-bold tracking-widest uppercase">Auto Body Works</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider">
+                <a href="#services" class="hover:text-brand-red transition">Υπηρεσιες</a>
+                <a href="#about" class="hover:text-brand-red transition">Το Συνεργειο</a>
+                <a href="#gallery" class="hover:text-brand-red transition">Εργα μας</a>
+                <a href="#estimator" class="hover:text-brand-red transition">Υπολογισμος Κεφαλαιου</a>
+                <a href="#reviews" class="hover:text-brand-red transition">Αξιολογησεις</a>
+            </nav>
+
+            <a href="tel:2102925733" class="hidden sm:inline-flex items-center gap-2 bg-brand-red hover:bg-brand-darkred text-white font-bold px-5 py-2.5 rounded-full transition shadow-lg shadow-brand-red/30">
+                <i class="fa-solid fa-phone"></i>
+                <span>210 2925733</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-32 overflow-hidden bg-cover bg-center" style="background-image: url('REVIVE_AUTO_BODY_WORK_SHOP_970415cfdef34af095740a36c20c2cdd.jpg');">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-brand-red/20 border border-brand-red/40 text-brand-red px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Βαθμολογια 5.0 / 5.0 στο Google</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none mb-6">
+                    ΕΞΕΙΔΙΚΕΥΜΕΝΟ <br>
+                    <span class="text-brand-red">ΦΑΝΟΠΟΙΕΙΟ & ΒΑΦΕΙΟ</span> <br>
+                    ΑΥΤΟΚΙΝΗΤΩΝ
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
+                    Επαναφέρουμε το όχημά σας στην αρχική του κατάσταση με κορυφαία τεχνογνωσία, σύγχρονο φούρνο βαφής και εγγυημένο αποτέλεσμα.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#estimator" class="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-darkred text-white font-bold text-lg px-8 py-4 rounded-xl transition shadow-xl shadow-brand-red/40">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Υπολογισμός Κόστους</span>
+                    </a>
+                    <a href="https://wa.me/306946923169" target="_blank" class="inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-8 py-4 rounded-xl transition">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Αποστολή Φωτογραφίας</span>
+                    </a>
+                    <a href="mailto:hoxhaolsi21@gmail.com?subject=Αίτημα%20Προσφοράς&body=Γεια%20σας%2C%20θα%20ήθελα%20προσφορά%20για%20το%20όχημά%20μου." class="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-gray-600 hover:border-brand-red hover:text-brand-red text-white font-bold text-lg px-8 py-4 rounded-xl transition">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                        <span>Email χωρίς WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="bg-black/50 border-y border-gray-800 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-square-check text-brand-red text-2xl mb-2"></i>
+                <span class="font-bold">5.0 / 5.0 Google Rating</span>
+                <span class="text-xs text-gray-400">★★★★★</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-spray-can text-brand-red text-2xl mb-2"></i>
+                <span class="font-bold">Βαφές Φούρνου</span>
+                <span class="text-xs text-gray-400">Οικολογικά Χρώματα</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-award text-brand-red text-2xl mb-2"></i>
+                <span class="font-bold">Εγγύηση Εργασίας</span>
+                <span class="text-xs text-gray-400">Πιστοποιημένα Υλικά</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-handshake text-brand-red text-2xl mb-2"></i>
+                <span class="font-bold">Κάλυψη Ασφαλιστικών</span>
+                <span class="text-xs text-gray-400">Διεκπεραίωση Ζημιών</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-20 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-5xl font-black mb-4">ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-gray-800 hover:border-brand-red transition group">
+                    <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Φανοποιία & Καλίμπρα</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Επισκευή δομικών ζημιών, ευθυγράμμιση αμαξώματος με σύγχρονη καλίμπρα και αποκατάσταση χτυπημάτων χωρίς συμβιβασμούς στην ασφάλεια.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-gray-800 hover:border-brand-red transition group">
+                    <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition">
+                        <i class="fa-solid fa-spray-can-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Βαφές Φούρνου</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Ολικές και τοπικές βαφές σε υπερσύγχρονο φούρνο με οικολογικά χρώματα υψηλής αντοχής και απόλυτη ταύτιση αποχρώσεων.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-gray-800 hover:border-brand-red transition group">
+                    <div class="w-14 h-14 bg-brand-red/10 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Γυάλισμα & Detailing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Επαγγελματικό γυάλισμα, κέρωμα και αλοιφή για αφαίρεση γρατζουνιών, επαναφέροντας τη λάμψη του χρώματος στο μέγιστο.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION WITH REAL PHOTOS -->
+    <section id="gallery" class="py-20 bg-black/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-5xl font-black mb-4">ΕΙΚΟΝΕΣ ΑΠΟ ΤΟ ΕΡΓΑΣΤΗΡΙΟ ΜΑΣ</h2>
+                <p class="text-gray-400">Δείτε τον εξοπλισμό, τις εγκαταστάσεις και τη φροντίδα που προσφέρουμε σε κάθε όχημα.</p>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Image 1 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_970415cfdef34af095740a36c20c2cdd.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_970415cfdef34af095740a36c20c2cdd.jpg" alt="Πρόσοψη REVIVE" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Πρόσοψη Καταστήματος</span>
+                            <span class="text-xs text-brand-red">REVIVE Auto Body Works</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_136c08e8f22e452ba5e54b2a2ced8c5a.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_136c08e8f22e452ba5e54b2a2ced8c5a.jpg" alt="Χώρος Εργαστηρίου" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Εσωτερικός Χώρος</span>
+                            <span class="text-xs text-brand-red">Σύγχρονο Εργαστήριο</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_4ca65853fa954827ae62cedfe749c6b8.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_4ca65853fa954827ae62cedfe749c6b8.jpg" alt="Φούρνος Βαφής" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Προετοιμασία Βαφής</span>
+                            <span class="text-xs text-brand-red">Εξειδικευμένος Φούρνος</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_459963456fa54bf3a6d5d1752ca99818.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_459963456fa54bf3a6d5d1752ca99818.jpg" alt="Εξοπλισμός Φανοποιίας" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Εργαλεία Φανοποιίας</span>
+                            <span class="text-xs text-brand-red">Επισκευή Αμαξώματος</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_60f10a07245045f190a92e4f0f88a203.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_60f10a07245045f190a92e4f0f88a203.jpg" alt="Εργαλειοθήκη Sonic" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Επαγγελματικός Εξοπλισμός</span>
+                            <span class="text-xs text-brand-red">Sonic Tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_d4484d9858314f538e1cef30b0e4f462.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_d4484d9858314f538e1cef30b0e4f462.jpg" alt="Διαδικασία Βαφής" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Βαφή Φούρνου</span>
+                            <span class="text-xs text-brand-red">Τέλειο Φινίρισμα</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 7 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_7bc45e3fff2b40b2ae0c11673dde27dc.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_7bc45e3fff2b40b2ae0c11673dde27dc.jpg" alt="Λεπτομέρεια Βαφής" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Έλεγχος Ποιότητας</span>
+                            <span class="text-xs text-brand-red">Απόλυτη Ακρίβεια</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 8 -->
+                <div class="group relative overflow-hidden rounded-xl bg-brand-card aspect-square cursor-pointer" onclick="openLightbox('REVIVE_AUTO_BODY_WORK_SHOP_f65dc3c018294a749f383a422739bc11.jpg')">
+                    <img src="REVIVE_AUTO_BODY_WORK_SHOP_f65dc3c018294a749f383a422739bc11.jpg" alt="Παράδοση Οχήματος" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4 text-center">
+                        <div>
+                            <span class="font-bold block">Έτοιμο προς Παράδοση</span>
+                            <span class="text-xs text-brand-red">Εγγυημένο Αποτέλεσμα</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTIMATOR FORM WITH WHATSAPP INTEGRATION -->
+    <section id="estimator" class="py-20 bg-brand-dark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-card border border-gray-800 p-8 sm:p-12 rounded-3xl shadow-2xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-4xl font-black mb-2">ΥΠΟΛΟΓΙΣΜΟΣ ΚΟΣΤΟΥΣ & ΠΡΟΣΦΟΡΑ</h2>
+                    <p class="text-gray-400 text-sm">Επιλέξτε τις εργασίες που χρειάζεστε για άμεση εκτίμηση μέσω WhatsApp.</p>
+                </div>
+
+                <form id="calcForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold uppercase tracking-wider mb-2">Τύπος Οχήματος</label>
+                        <select id="carType" class="w-full bg-black/50 border border-gray-700 rounded-xl p-4 text-white focus:border-brand-red focus:outline-none">
+                            <option value="Hatchback / Sedan">Hatchback / Sedan</option>
+                            <option value="SUV / Crossover">SUV / Crossover</option>
+                            <option value="Coupe / Cabrio">Coupe / Cabrio</option>
+                            <option value="Επαγγελματικό / Van">Επαγγελματικό / Van</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold uppercase tracking-wider mb-2">Εργασίες που Απαιτούνται</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 bg-black/30 p-4 rounded-xl border border-gray-800 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Τοπική Βαφή (Προφυλακτήρας/Φτερό)" class="accent-brand-red w-5 h-5">
+                                <span class="text-sm">Τοπική Βαφή</span>
+                            </label>
+                            <label class="flex items-center gap-3 bg-black/30 p-4 rounded-xl border border-gray-800 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Ολική Βαφή Οχήματος" class="accent-brand-red w-5 h-5">
+                                <span class="text-sm">Ολική Βαφή</span>
+                            </label>
+                            <label class="flex items-center gap-3 bg-black/30 p-4 rounded-xl border border-gray-800 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Επισκευή Φανοποιίας / Χτύπημα" class="accent-brand-red w-5 h-5">
+                                <span class="text-sm">Επισκευή Φανοποιίας</span>
+                            </label>
+                            <label class="flex items-center gap-3 bg-black/30 p-4 rounded-xl border border-gray-800 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Γυάλισμα & Ξεθάμπωμα Φαναριών" class="accent-brand-red w-5 h-5">
+                                <span class="text-sm">Γυάλισμα & Φανάρια</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold uppercase tracking-wider mb-2">Σημειώσεις / Περιγραφή</label>
+                        <textarea id="notes" rows="3" placeholder="Περιγράψτε σύντομα τη ζημιά..." class="w-full bg-black/50 border border-gray-700 rounded-xl p-4 text-white focus:border-brand-red focus:outline-none"></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button type="button" onclick="sendToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition flex items-center justify-center gap-3 text-lg">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Αποστολή στο WhatsApp</span>
+                        </button>
+                        <button type="button" onclick="sendToEmail()" class="w-full bg-transparent border-2 border-gray-600 hover:border-brand-red hover:text-brand-red text-white font-bold py-4 rounded-xl transition flex items-center justify-center gap-3 text-lg">
+                            <i class="fa-solid fa-envelope text-2xl"></i>
+                            <span>Αποστολή με Email</span>
+                        </button>
+                    </div>
+                    <p class="text-center text-xs text-gray-500">Δεν έχετε WhatsApp; Χρησιμοποιήστε το κουμπί Email και θα λάβετε προσφορά το συντομότερο δυνατό.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<!-- REVIEWS SECTION -->
+    <section id="reviews" class="py-20 bg-black/30 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-5xl font-black mb-4">ΤΙ ΛΕΝΕ ΟΙ ΠΕΛΑΤΕΣ ΜΑΣ</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto"></div>
+            </div>
+
+            <!-- Live Google Reviews via Elfsight -->
+            <div id="elfsightWrapper">
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div id="elfsightReviews" class="elfsight-app-a47484ec-b776-4417-b069-6651e3e3e6f3" data-elfsight-app-lazy></div>
+            </div>
+
+            <!-- Static fallback reviews (κρυμμένα αρχικά) -->
+            <div id="staticReviews" class="hidden grid md:grid-cols-3 gap-8">
+                <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 flex flex-col">
+                    <div class="flex text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6 flex-1">Εξαιρετική δουλειά και άψογος επαγγελματισμός από τον ιδιοκτήτη! Το αυτοκίνητό μου παραδόθηκε σαν καινούργιο, με προσοχή στη λεπτομέρεια και στον συμφωνημένο χρόνο. Το προσωπικό ήταν ευγενέστατο, πρόθυμο να εξηγήσει τα πάντα και οι τιμές απολύτως λογικές. Συνιστώ το φανοποιείο ανεπιφύλακτα χωρίς δεύτερη σκέψη!</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <div>
+                            <a href="https://www.google.com/maps/contrib/118178392688979169578/reviews?hl=el-GR" target="_blank" rel="noopener" class="font-bold text-sm hover:text-brand-red transition">Spyros Gkountas</a>
+                            <div class="text-xs text-gray-500">1 κριτική</div>
+                        </div>
+                        <span class="text-xs text-gray-500">8 μήνες πριν</span>
+                    </div>
+                </div>
+
+                <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 flex flex-col">
+                    <div class="flex text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6 flex-1">Αξίζει σίγουρα να εμπιστευτείτε τα αμάξια σας στα χέρια τους!! Με εξυπηρέτησαν πολύ άμεσα και με πρόσεξαν πάρα πολύ!!! Το αμάξι μου δείχνει σαν να μην έπαθε ποτέ τίποτα και ακόμα καλύτερα, πολύ καλοί επαγγελματίες, χάρηκα πολύ που τους επέλεξα!!!</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <div>
+                            <a href="https://www.google.com/maps/contrib/116144361673171035508/reviews?hl=el-GR" target="_blank" rel="noopener" class="font-bold text-sm hover:text-brand-red transition">Inva Zeneli</a>
+                            <div class="text-xs text-gray-500">3 κριτικές · 2 φωτογραφίες</div>
+                        </div>
+                        <span class="text-xs text-gray-500">9 μήνες πριν</span>
+                    </div>
+                </div>
+
+                <div class="bg-brand-card p-6 rounded-2xl border border-gray-800 flex flex-col">
+                    <div class="flex text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6 flex-1">Το παιδί είδε από φωτογραφία τη ζημιά, μου έκανε μια εκτίμηση και του πήγα το αυτοκίνητο! Το είχε έτοιμο πριν την μέρα που μου είπε και είχε κάνει εξαιρετική δουλειά παρόλο που το χρώμα του αυτοκινήτου είναι δύσκολο! Τους συνιστώ ανεπιφύλακτα, τρομεροί!!</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <div>
+                            <a href="https://www.google.com/maps/contrib/117930134273803649837/reviews?hl=el-GR" target="_blank" rel="noopener" class="font-bold text-sm hover:text-brand-red transition">Mario Tsomple</a>
+                            <div class="text-xs text-gray-500">Τοπικός οδηγός · 71 κριτικές · 384 φωτογραφίες</div>
+                        </div>
+                        <span class="text-xs text-gray-500">3 εβδομάδες πριν</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-car-burst text-brand-red text-2xl"></i>
+                <span class="font-black text-xl tracking-wider">REVIVE</span>
+            </div>
+            <p class="text-gray-500 text-sm">© 2026 REVIVE Auto Body Works. All rights reserved.</p>
+            <div class="flex gap-4 text-xl text-gray-400">
+                <a href="#" class="hover:text-brand-red transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-brand-red transition"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Επιστροφή στην κορυφή" class="fixed right-5 bottom-24 md:bottom-8 z-50 w-12 h-12 rounded-full bg-brand-red hover:bg-brand-darkred text-white shadow-xl shadow-brand-red/40 flex items-center justify-center transition">
+        <i class="fa-solid fa-arrow-up text-lg"></i>
+    </button>
+
+    <!-- MOBILE BOTTOM NAVIGATION BAR -->
+    <div class="fixed bottom-0 left-0 right-0 bg-brand-dark/95 border-t border-gray-800 p-3 flex justify-around items-center md:hidden z-50 backdrop-blur">
+        <a href="tel:2102925733" class="flex flex-col items-center text-xs font-bold text-gray-300 hover:text-brand-red">
+            <i class="fa-solid fa-phone text-lg mb-1 text-brand-red"></i>
+            <span>Κλήση</span>
+        </a>
+        <a href="#estimator" class="flex flex-col items-center text-xs font-bold text-gray-300 hover:text-brand-red">
+            <i class="fa-solid fa-calculator text-lg mb-1 text-brand-red"></i>
+            <span>Προσφορά</span>
+        </a>
+        <a href="https://wa.me/306946923169" target="_blank" class="flex flex-col items-center text-xs font-bold text-emerald-500">
+            <i class="fa-brands fa-whatsapp text-xl mb-1"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="mailto:hoxhaolsi21@gmail.com" class="flex flex-col items-center text-xs font-bold text-gray-300 hover:text-brand-red">
+            <i class="fa-solid fa-envelope text-lg mb-1 text-brand-red"></i>
+            <span>Email</span>
+        </a>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="Enlarged image" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl">
+    </div>
+
+<!-- JAVASCRIPT FUNCTIONS -->
+    <script>
+        function buildRequestText() {
+            const carType = document.getElementById("carType").value;
+            const checkboxes = document.querySelectorAll('#calcForm input[type="checkbox"]:checked');
+            const selectedServices = Array.from(checkboxes).map(cb => cb.value).join(", ");
+            const notes = document.getElementById("notes").value;
+
+            let message = `Γεια σας! Θα ήθελα προσφορά για το όχημά μου.\n\n`;
+            message += `Τύπος Οχήματος: ${carType}\n`;
+            message += `Εργασίες: ${selectedServices ? selectedServices : 'Δεν επιλέχθηκαν συγκεκριμένες εργασίες'}\n`;
+            if (notes.trim() !== '') {
+                message += `Σημειώσεις: ${notes}\n`;
+            }
+            return message;
+        }
+
+        function sendToWhatsApp() {
+            const phoneNumber = "306946923169";
+            const message = buildRequestText();
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        function sendToEmail() {
+            const email = "hoxhaolsi21@gmail.com";
+            const subject = "Αίτημα Προσφοράς - REVIVE Auto Body Works";
+            const body = buildRequestText();
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 400) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // --- ΕΛΕΓΧΟΣ ΓΙΑ ΤΟ ELFSIGHT WIDGET ---
+        function checkElfsightWidget() {
+            const elfsightContainer = document.getElementById('elfsightReviews');
+            const staticReviews = document.getElementById('staticReviews');
+            const elfsightWrapper = document.getElementById('elfsightWrapper');
+
+            // Ελέγχουμε αν δημιουργήθηκαν στοιχεία μέσα στο Elfsight container & αν έχει ύψος
+            const hasLoadedContent = elfsightContainer && 
+                                    elfsightContainer.children.length > 0 && 
+                                    elfsightContainer.offsetHeight > 80;
+
+            if (!hasLoadedContent) {
+                // Αν δεν φορτώθηκε σωστά, κρύβουμε το Elfsight και δείχνουμε τα Static
+                if (elfsightWrapper) elfsightWrapper.style.display = 'none';
+                if (staticReviews) staticReviews.classList.remove('hidden');
+            }
+        }
+
+        // Δίνουμε 2.5 δευτερόλεπτα στο Elfsight να φορτώσει
+        window.addEventListener('load', () => {
+            setTimeout(checkElfsightWidget, 2500);
+        });
+    </script>
+</body>
+</html>
